@@ -1,19 +1,19 @@
 #include <stdio.h>
 
-void bubble_sort( int n, int *arr )
+void insertion_sort( int n, int *arr )
 {
-    int temp;
-    for ( int i = 0; i < n; i++ )
+    int key,j;
+    for ( int i = 1; i < n; i++ )
     {
-        for ( int j = 0; j < n-i-1; j++ )
+        key = *(arr + i);
+        j = i - 1;
+
+        while ( j >= 0 && *(arr + j) > key )
         {
-            if ( *(arr + j) > *(arr + j + 1))
-            {
-                temp = *(arr + j);
-                *(arr + j) = *(arr + j + 1);
-                *(arr + j + 1) = temp;
-            }
+            *(arr + j + 1) =  *(arr + j);
+            --j; 
         }
+        *(arr + j + 1) = key;
     }
 }
 
@@ -31,7 +31,7 @@ int main()
         scanf("%d",&arr[i]);
     }
 
-    bubble_sort(n,arr);
+    insertion_sort(n,arr);
 
     printf("\n\nSorted array is:\n");
     for (i=0;i<n;i++)

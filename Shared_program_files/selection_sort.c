@@ -1,20 +1,22 @@
 #include <stdio.h>
 
-void bubble_sort( int n, int *arr )
+void selection_sort( int n, int *arr )
 {
-    int temp;
-    for ( int i = 0; i < n; i++ )
+    int select;
+    for ( int i = 0; i < n - 1; i++ )
     {
-        for ( int j = 0; j < n-i-1; j++ )
+        for ( int j = i + 1; j < n; j++ )
         {
-            if ( *(arr + j) > *(arr + j + 1))
+            select = *( arr + i );
+            if ( select > *(arr + j ) )
             {
-                temp = *(arr + j);
-                *(arr + j) = *(arr + j + 1);
-                *(arr + j + 1) = temp;
+
+                *( arr + i ) = *( arr + j );
+                *( arr + j ) = select;
+                
             }
         }
-    }
+    }  
 }
 
 int main()
@@ -31,7 +33,7 @@ int main()
         scanf("%d",&arr[i]);
     }
 
-    bubble_sort(n,arr);
+    selection_sort(n,arr);
 
     printf("\n\nSorted array is:\n");
     for (i=0;i<n;i++)
