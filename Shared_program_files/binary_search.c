@@ -32,19 +32,19 @@ int binary_search( int x, int n, int *arr )
 
     while (min <= max)
     {
-        if ( mid == x)
+        if (*(arr + mid) == x)
         {
-            printf("The element is present in %d",mid);
+            printf("The element is present.");
             return 0;
         }
-        else if ( mid < x)
+        else if (*(arr + mid)< x)
         {
-            min = mid - 1;
+            min = mid + 1;
             mid = ( ( min + max)/2);
         }
-        else if ( mid > x)
+        else if ( *(arr + mid) > x)
         {
-            max = mid + 1;
+            max = mid - 1;
             mid = ( ( min + max)/2);
         }
     }

@@ -48,7 +48,7 @@ void recursive_binary_search( int x, int n, int *arr)
 
     if ( found >= 0 )
     {
-        printf("The element is present at %d",found );
+        printf("The element is present.");
     }
     else
     {
