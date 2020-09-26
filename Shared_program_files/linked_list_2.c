@@ -102,13 +102,12 @@ node *del_end(node *start)
     return start;
 }
 
-void search(node *start)
+int search(node *start,int s)
 {
+    int count=0;
     if (!isempty(start))
     {
-        int s, count = 0, f = 0;
-        printf("\n\nEnter value to search:");
-        scanf("%d", &s);
+        int f = 0;
         node *ptr = start;
 
         while (ptr != NULL)
@@ -118,62 +117,73 @@ void search(node *start)
             {
                 printf("Element found at node %d\n", count);
                 f = 1;
+                break;
             }
             ptr = ptr->next;
         }
         if (!f)
         {
             printf("No such element is present.");
+            count=-1;
         }
     }
     else
     {
         printf("There is no node.");
+        count=0;
     }
+    return count;
 }
 
 node *del_before(node *start)
 {
-    if (!isempty(start))
+    if(isempty(start))
     {
-        node *ptr, *ptr2;
-        int s;
-        printf("Enter keyvalue:");
-        scanf("%d",&s);
-        ptr = start;
-        ptr2 = start;
-        int l = 2, m = 1,f=0;
-        while (ptr != NULL)
-        {
-            if (ptr->x == s)
-            {
-                f=1;
-                while (m <= l - 2)
-                {
-                    ptr2 = ptr->next;
-                    m++;
-                }
-                ptr2->next = (ptr2->next)->next;
-                break;
-            }
-            l++;
-            ptr = ptr->next;
-        }
-        if(f)
-        {
-            printf("Element found.");
-        }
-        else
-        {
-            printf("Element not found.");
-        }
-        
-        return start;
+        printf("Deletion cannot be possible.");
     }
     else
     {
-        printf("No nodes are here.");
+        int s;
+        printf("Enter searc value:");
+        scanf("%d",&s);
+
+        if (start->x==s)
+        {
+            printf("Deletion cannot be possible.");
+        }
+        else
+        {
+            node *ptr,*ptr2;
+            ptr = start;
+            ptr2 = start;
+            int n = search(start,s);
+            int i=2;
+            if (n>2)
+            {
+                while(i<=n)
+                {
+                    ptr=ptr->next;
+                    i++;
+                }
+                i=1;
+                while(i<(n-2))
+                {
+                    ptr2=ptr2->next;
+                    i++;
+                }
+                ptr2->next = ptr;
+            }
+            else if (n==2)
+            {
+                start = del_begin(start);
+            }
+            else
+            {
+                printf("No element as such present.");
+            }            
+        }        
     }
+    return start;
 }
 
 node *del_after(node *start)
@@ -207,9 +217,8 @@ node *del_after(node *start)
         {
             printf("Element not found.");
         }
-        
-		return start;
 	}
+    return start;
 }
 
 void display(node *start)
@@ -259,7 +268,10 @@ int main()
         }
         case 4:
         {
-            search(start);
+            int s;
+            printf("\n\nEnter value to search:");
+            scanf("%d", &s);
+            search(start,s);
             break;
         }
         case 5:
