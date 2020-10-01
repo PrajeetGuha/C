@@ -1,3 +1,16 @@
+/*
+Name: Prajeet Guha
+Computer Science and Engineering Second Year
+Roll No: 28
+Assignment No.: 6
+Date of assignment:24/09/2020
+
+Question_Number: 1
+Question_description: Write a menu driven program for 1.creating 2.deleting first node 3.deleting last node 4.searching a node 5. deleting after a node 6.deleting before a node 7.displaying a node
+*/
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -144,7 +157,7 @@ node *del_before(node *start)
     else
     {
         int s;
-        printf("Enter searc value:");
+        printf("Enter search value:");
         scanf("%d",&s);
 
         if (start->x==s)
