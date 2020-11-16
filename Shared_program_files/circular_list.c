@@ -144,6 +144,10 @@ node *del_beg(node *start)
     {
         printf("\n\nNo list.");
     }
+    else if (start->next = start)
+    {
+        start = NULL;
+    }
     else
     {
         node *ptr = start;
@@ -165,6 +169,10 @@ node *del_end(node *start)
     if (isempty(start))
     {
         printf("\n\nNo list.");
+    }
+    else if (start->next = start)
+    {
+        start = NULL;
     }
     else
     {
