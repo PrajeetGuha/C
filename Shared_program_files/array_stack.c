@@ -1,10 +1,3 @@
-/* Name: Prajeet Guha
-   Roll: 28
-   CSE 2nd Year
-   Question: Stack operation PUSH, POP, DISPLAY using array
-   Date: 30/12/2020
-   Assignment: 13
- */
 #include<stdio.h>
 #include<stdlib.h>
 

@@ -1,12 +1,3 @@
-/* Name: Prajeet Guha
-   Roll: 28
-   CSE 2nd Year 3rd Sem
-   Date: 6/1/2021
-   Assignment: 14
-   Question: To convert infix expression to ppostfix expression 
-   */
-
-
 #include<stdio.h>
 #include<strings.h>
 #include<ctype.h>
@@ -16,11 +7,6 @@
 
 char stack[SIZE];
 int top = -1;
-
-void check()
-{
-	printf("check");
-}
 
 void push( char val )
 {
@@ -62,6 +48,7 @@ void infix_to_postfix ( char infix[], char postfix[] )
 {
 	push('(');
 	strcat(infix,")");
+	//infix = infix + )
 	int i = 0;
 	int j = 0;
 	char prev;

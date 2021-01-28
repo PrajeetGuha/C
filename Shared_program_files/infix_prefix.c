@@ -1,12 +1,3 @@
-/* Name: Prajeet Guha
-   Roll: 28
-   CSE 2nd Year 3rd Sem
-   Date: 13/1/2021
-   Assignment: 15
-   Question: To convert infix expression to prefix expression 
-   */
-
-
 #include<stdio.h>
 #include<strings.h>
 #include<ctype.h>
